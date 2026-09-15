@@ -1,0 +1,12 @@
+name: harlie-demo
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show workspace
+        run: ls -la
+      - name: Build
+        run: echo "hello from harlie" > hello.txt
+      - name: System info
+        run: uname -a && date
