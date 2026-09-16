@@ -1,16 +1,22 @@
 name: harlie-demo
 
-# Allows you to run this workflow manually from the Actions tab
 on:
   workflow_dispatch:
 
 jobs:
-  build:
+  # Step 1: Inspect the environment
+  inspect:
     runs-on: ubuntu-latest
     steps:
       - name: Show workspace
         run: ls -la
-      - name: Build
-        run: echo "hello from harlie" > hello.txt
       - name: System info
         run: uname -a && date
+
+  # Step 2: Run the build (Starts only after 'inspect' finishes successfully)
+  build:
+    needs: inspect
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build artifact
+        run: echo "hello from harlie" > hello.txt
