@@ -1,0 +1,40 @@
+name: ci
+version: "1.0"
+
+triggers:
+  - push:
+      branches: [main]
+  - pull_request:
+      branches: [main]
+
+variables:
+  RUST_VERSION: "1.75"
+
+stages:
+  - name: build
+    jobs:
+      - name: compile
+        runs_on: ubuntu-latest
+        timeout_seconds: 300
+        steps:
+          - name: Show toolchain
+            run: rustc --version && cargo --version
+          - name: Build
+            run: cargo build --release
+          - name: Run tests
+            run: cargo test --quiet
+            continue_on_error: false
+            env:
+              CARGO_TERM_COLOR: always
+
+  - name: package
+    needs: [build]
+    jobs:
+      - name: bundle
+        steps:
+          - name: Collect output
+            run: tar -czf app.tar.gz target/release
+          - name: List artifacts
+            run: ls -lh app.tar.gz
+        artifacts:
+          - "app.tar.gz"
