@@ -11,7 +11,7 @@ variables:
   RUST_VERSION: "1.75"
 
 stages:
-  - name: build
+  - name: build-build
     jobs:
       - name: compile
         runs_on: ubuntu-latest
