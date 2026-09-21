@@ -26,6 +26,8 @@ stages:
             continue_on_error: false
             env:
               CARGO_TERM_COLOR: always
+        artifacts:
+          - "target/release"
 
   - name: package
     needs: [build]
