@@ -1,4 +1,4 @@
-name: ci-demo
+name: ci-demo-for-errol
 version: "1.0"
 
 triggers:
