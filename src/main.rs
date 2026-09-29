@@ -1,5 +1,5 @@
 fn main() {
-    println!("hello from demo app");
+    println!("hello from the demo app");
 }
 
 #[cfg(test)]
