@@ -14,7 +14,7 @@ fn greeting(name: &str) -> String {
 fn main() {
     let addr = "0.0.0.0:8080";
     let listener = TcpListener::bind(addr).expect("failed to bind");
-    println!("demo app listening on {addr}");
+    println!("Hello from the demo app — listening on {addr}");
     for stream in listener.incoming() {
         match stream {
             Ok(mut stream) => {
