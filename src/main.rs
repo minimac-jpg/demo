@@ -1,14 +1,9 @@
 use std::io::{Read, Write};
 use std::net::TcpListener;
 
-/// Builds the greeting served by the demo app.
-///
-/// NOTE (seeded demo bug): this ignores `name` and always returns "Andre".
-/// The coding demo card asks the agent to make the failing test below pass —
-/// a small, deterministic, real code change it opens a PR for.
+/// Builds the greeting served by the demo app, addressing `name`.
 fn greeting(name: &str) -> String {
-    let _ = name;
-    "Hello Andre from the demo app\n".to_string()
+    format!("Hello {name} from the demo app\n")
 }
 
 fn main() {
