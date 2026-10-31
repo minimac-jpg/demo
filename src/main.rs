@@ -37,6 +37,6 @@ mod tests {
 
     #[test]
     fn greeting_uses_the_requested_name() {
-        assert_eq!(super::greeting("Sam"), "Hello Sam from the demo app\n");
+        assert_eq!(super::greeting("Mark"), "Hello Mark from the demo app\n");
     }
 }
