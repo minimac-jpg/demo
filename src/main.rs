@@ -15,7 +15,7 @@ fn main() {
             Ok(mut stream) => {
                 let mut buf = [0u8; 1024];
                 let _ = stream.read(&mut buf);
-                let body = greeting("Andre");
+                let body = greeting("Mark");
                 let response = format!(
                     "HTTP/1.1 200 OK\r\nContent-Length: {}\r\nContent-Type: text/plain\r\nConnection: close\r\n\r\n",
                     body.len()
