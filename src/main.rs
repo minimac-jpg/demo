@@ -9,13 +9,13 @@ fn greeting(name: &str) -> String {
 fn main() {
     let addr = "0.0.0.0:8080";
     let listener = TcpListener::bind(addr).expect("failed to bind");
-    println!("Hello User from the demo app — listening on {addr}");
+    println!("Hello Andre from the demo app — listening on {addr}");
     for stream in listener.incoming() {
         match stream {
             Ok(mut stream) => {
                 let mut buf = [0u8; 1024];
                 let _ = stream.read(&mut buf);
-                let body = greeting("User");
+                let body = greeting("Andre");
                 let response = format!(
                     "HTTP/1.1 200 OK\r\nContent-Length: {}\r\nContent-Type: text/plain\r\nConnection: close\r\n\r\n",
                     body.len()
